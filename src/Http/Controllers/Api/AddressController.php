@@ -8,7 +8,7 @@ use Akkurate\LaravelContact\Http\Requests\Address\UpdateAddressRequest;
 use Akkurate\LaravelContact\Http\Resources\Address as AddressResource;
 use Akkurate\LaravelContact\Http\Resources\AddressCollection;
 use Akkurate\LaravelContact\Models\Address;
-use Akkurate\LaravelCore\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Validation\ValidationException;

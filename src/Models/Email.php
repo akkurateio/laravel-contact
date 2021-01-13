@@ -2,15 +2,25 @@
 
 namespace Akkurate\LaravelContact\Models;
 
-use Akkurate\LaravelCore\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use Webpatser\Uuid\Uuid;
 
 class Email extends Model
 {
-    use HasUuid;
 
     protected $table = 'contact_emails';
     protected $fillable = ['type_id','name','email','priority','is_default','is_active','emailable_type','emailable_id'];
+
+    /**
+     *  Setup model event hooks
+     */
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->uuid = (string) Uuid::generate(4);
+        });
+    }
 
     public function type()
     {

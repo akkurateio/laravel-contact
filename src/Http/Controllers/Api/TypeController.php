@@ -6,7 +6,7 @@ use Akkurate\LaravelContact\Classes\ContactType;
 use Akkurate\LaravelContact\Http\Resources\Type as TypeResource;
 use Akkurate\LaravelContact\Http\Resources\TypeCollection;
 use Akkurate\LaravelContact\Models\Type;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

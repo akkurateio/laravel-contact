@@ -3,15 +3,14 @@
 namespace Akkurate\LaravelContact\Models;
 
 use Akkurate\LaravelContact\Database\Factories\TypeFactory;
-use Akkurate\LaravelCore\Traits\HasUuid;
 use Akkurate\LaravelCore\Traits\IsActivable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Webpatser\Uuid\Uuid;
 
 class Type extends Model
 {
-    use HasUuid;
     use softDeletes;
     use HasFactory;
     use IsActivable;
@@ -19,6 +18,17 @@ class Type extends Model
     protected $table = 'contact_types';
 
     protected $fillable = ['code','name', 'shortname','description','priority','is_active'];
+
+    /**
+     *  Setup model event hooks
+     */
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->uuid = (string) Uuid::generate(4);
+        });
+    }
 
     /**
      * Create a new factory instance for the model.

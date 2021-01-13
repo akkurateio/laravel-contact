@@ -2,9 +2,9 @@
 
 namespace Akkurate\LaravelContact\Forms\Type;
 
-use Akkurate\LaravelCore\Forms\AbstractForm;
+use Kris\LaravelFormBuilder\Form;
 
-class TypeAbstractForm extends AbstractForm
+class TypeAbstractForm extends Form
 {
     public function buildForm()
     {

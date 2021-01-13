@@ -8,7 +8,7 @@ use Akkurate\LaravelContact\Http\Requests\Phone\UpdatePhoneRequest;
 use Akkurate\LaravelContact\Http\Resources\Phone as PhoneResource;
 use Akkurate\LaravelContact\Http\Resources\PhoneCollection;
 use Akkurate\LaravelContact\Models\Phone;
-use Akkurate\LaravelCore\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;

@@ -8,7 +8,7 @@ use Akkurate\LaravelContact\Http\Requests\Email\UpdateEmailRequest;
 use Akkurate\LaravelContact\Http\Resources\Email as EmailResource;
 use Akkurate\LaravelContact\Http\Resources\EmailCollection;
 use Akkurate\LaravelContact\Models\Email;
-use Akkurate\LaravelCore\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
