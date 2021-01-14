@@ -5,7 +5,6 @@ namespace Akkurate\LaravelContact\Tests;
 use Akkurate\LaravelBackComponents\LaravelBackComponentsServiceProvider;
 use Akkurate\LaravelContact\LaravelContactServiceProvider;
 use Akkurate\LaravelContact\Tests\Models\Account;
-use Akkurate\LaravelContact\Tests\Models\Preference;
 use Akkurate\LaravelContact\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

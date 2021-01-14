@@ -3,7 +3,6 @@
 namespace Akkurate\LaravelContact\Models;
 
 use Akkurate\LaravelContact\Database\Factories\TypeFactory;
-use Akkurate\LaravelCore\Traits\IsActivable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,9 +10,7 @@ use Webpatser\Uuid\Uuid;
 
 class Type extends Model
 {
-    use softDeletes;
-    use HasFactory;
-    use IsActivable;
+    use softDeletes, HasFactory;
 
     protected $table = 'contact_types';
 
@@ -38,5 +35,37 @@ class Type extends Model
     protected static function newFactory()
     {
         return TypeFactory::new();
+    }
+
+    public function scopeActive($query)
+    {
+        return $query
+            ->where('is_active', true);
+    }
+
+    public function isActive()
+    {
+        return $this->is_active;
+    }
+
+    public function activate()
+    {
+        return $this->update([
+            'is_active' => true
+        ]);
+    }
+
+    public function deactivate()
+    {
+        return $this->update([
+            'is_active' => false
+        ]);
+    }
+
+    public function toggle()
+    {
+        return $this->update([
+            'is_active' => ! $this->is_active
+        ]);
     }
 }
