@@ -8,15 +8,15 @@ use Akkurate\LaravelContact\Http\Requests\Phone\UpdatePhoneRequest;
 use Akkurate\LaravelContact\Http\Resources\Phone as PhoneResource;
 use Akkurate\LaravelContact\Http\Resources\PhoneCollection;
 use Akkurate\LaravelContact\Models\Phone;
-use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class  PhoneController extends Controller
+class PhoneController extends Controller
 {
 
     /**
@@ -26,7 +26,8 @@ class  PhoneController extends Controller
      */
     public function index()
     {
-        return new PhoneCollection(QueryBuilder::for(Phone::class)
+        return new PhoneCollection(
+            QueryBuilder::for(Phone::class)
             ->allowedFilters([
                 'number', 'prefix', 'priority', 'is_default', 'is_active', 'phoneable_type',
                 AllowedFilter::exact('phoneable_id')
@@ -47,6 +48,7 @@ class  PhoneController extends Controller
     public function store($uuid, CreatePhoneRequest $request)
     {
         $phone = ContactPhone::create($request->validated());
+
         return new PhoneResource($phone);
     }
 
@@ -71,6 +73,7 @@ class  PhoneController extends Controller
     public function update($uuid, UpdatePhoneRequest $request, Phone $phone)
     {
         $phone->update($request->validated());
+
         return new PhoneResource($phone);
     }
 
@@ -84,8 +87,7 @@ class  PhoneController extends Controller
     public function destroy($uuid, Phone $phone)
     {
         $phone->delete();
+
         return response()->json(null, 204);
     }
-
-
 }

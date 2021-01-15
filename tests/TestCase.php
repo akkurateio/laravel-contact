@@ -13,7 +13,6 @@ use Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
-
     protected $user;
 
     protected function setUp(): void
@@ -60,7 +59,6 @@ class TestCase extends OrchestraTestCase
 
     protected function createUser()
     {
-
         $account = Account::create([
             'name' => 'Account',
             'email' => 'account@email.com',

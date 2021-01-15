@@ -7,7 +7,6 @@ use Webpatser\Uuid\Uuid;
 
 class Phone extends Model
 {
-
     protected $table = 'contact_phones';
     protected $fillable = ['type_id','name','number', 'prefix','priority','is_default','is_active','phoneable_type','phoneable_id'];
 
@@ -28,7 +27,7 @@ class Phone extends Model
     }
 
     public function phoneable()
-	{
-		return $this->morphTo();
-	}
+    {
+        return $this->morphTo();
+    }
 }

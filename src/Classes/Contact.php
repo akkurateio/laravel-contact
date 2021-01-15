@@ -28,14 +28,13 @@ class Contact
      * @param array $params
      * @param string $key
      * @param string $class
-     * @param null|integer $defaultValue
+     * @param null|int $defaultValue
      * @param array $additionalParams
-     * @return null|integer
+     * @return null|int
      */
     public static function getItemId(array $params, string $key, string $class, $defaultValue = null, $additionalParams = [])
     {
         if (array_key_exists($key, $params)) {
-
             if (is_array($params[$key]) && class_exists($class) && $item = $class::create(array_merge($additionalParams, $params[$key]))) {
                 return $item->id;
             }

@@ -8,9 +8,9 @@ use Akkurate\LaravelContact\Http\Requests\Email\UpdateEmailRequest;
 use Akkurate\LaravelContact\Http\Resources\Email as EmailResource;
 use Akkurate\LaravelContact\Http\Resources\EmailCollection;
 use Akkurate\LaravelContact\Models\Email;
-use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -24,7 +24,8 @@ class EmailController extends Controller
      */
     public function index()
     {
-        return new EmailCollection(QueryBuilder::for(Email::class)
+        return new EmailCollection(
+            QueryBuilder::for(Email::class)
             ->allowedFilters([
                 'type', 'name', 'email', 'priority', 'is_default', 'is_active', 'emailable_type',
                 AllowedFilter::exact('emailable_id')
@@ -65,6 +66,7 @@ class EmailController extends Controller
     public function update($uuid, UpdateEmailRequest $request, Email $email)
     {
         $email->update($request->validated());
+
         return new EmailResource($email);
     }
 
@@ -77,9 +79,8 @@ class EmailController extends Controller
      */
     public function destroy($uuid, Email $email)
     {
-
         $email->delete();
+
         return response()->json(null, 204);
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace Akkurate\LaravelContact\Http\Requests\Email;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateEmailRequest extends FormRequest

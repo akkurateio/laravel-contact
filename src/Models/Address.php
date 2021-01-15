@@ -26,8 +26,8 @@ class Address extends Model
         return $this->belongsTo(Type::class);
     }
 
-	public function addressable()
-	{
-		return $this->morphTo();
-	}
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 }

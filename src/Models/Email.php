@@ -7,7 +7,6 @@ use Webpatser\Uuid\Uuid;
 
 class Email extends Model
 {
-
     protected $table = 'contact_emails';
     protected $fillable = ['type_id','name','email','priority','is_default','is_active','emailable_type','emailable_id'];
 

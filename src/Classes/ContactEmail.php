@@ -3,7 +3,6 @@
 
 namespace Akkurate\LaravelContact\Classes;
 
-
 use Akkurate\LaravelContact\Models\Email;
 use Akkurate\LaravelContact\Models\Type;
 use Illuminate\Support\Facades\Validator;
@@ -48,8 +47,12 @@ class ContactEmail
             'is_active' => Contact::getIfExists($params, 'is_active', 1),
             'emailable_type' => $params['emailable_type'],
             'emailable_id' => $params['emailable_id'],
-            'type_id' => Contact::getItemId($params, 'type', Type::class,
-                array_key_exists('type_id', $params) ? $params['type_id'] : self::getDefaultType()->id),
+            'type_id' => Contact::getItemId(
+                $params,
+                'type',
+                Type::class,
+                array_key_exists('type_id', $params) ? $params['type_id'] : self::getDefaultType()->id
+            ),
         ];
 
         if ($email = Email::where([

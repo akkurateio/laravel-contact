@@ -6,10 +6,10 @@ use Akkurate\LaravelContact\Classes\ContactType;
 use Akkurate\LaravelContact\Http\Resources\Type as TypeResource;
 use Akkurate\LaravelContact\Http\Resources\TypeCollection;
 use Akkurate\LaravelContact\Models\Type;
-use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -23,7 +23,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        return new TypeCollection(QueryBuilder::for(Type::class)
+        return new TypeCollection(
+            QueryBuilder::for(Type::class)
             ->where('is_active', true)
             ->allowedFilters(['code', 'name', 'description', 'priority', 'is_active'])
             ->allowedSorts(['code', 'name', 'description', 'priority', 'is_active'])
@@ -43,6 +44,7 @@ class TypeController extends Controller
     public function store($uuid, Request $request)
     {
         $type = ContactType::create($request->validated());
+
         return response()->json($type, 201);
     }
 
@@ -69,6 +71,7 @@ class TypeController extends Controller
     public function update($uuid, Request $request, Type $type)
     {
         $type->update($request->validated());
+
         return new TypeResource($type);
     }
 
@@ -83,6 +86,7 @@ class TypeController extends Controller
     public function destroy($uuid, Type $type)
     {
         $type->delete();
+
         return response()->json(null, 204);
     }
 
@@ -98,7 +102,7 @@ class TypeController extends Controller
     {
         $type->is_active = $request->is_active;
         $type->save();
+
         return new TypeResource($type);
     }
-
 }

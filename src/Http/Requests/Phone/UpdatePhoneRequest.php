@@ -4,7 +4,7 @@ namespace Akkurate\LaravelContact\Http\Requests\Phone;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class  UpdatePhoneRequest extends FormRequest
+class UpdatePhoneRequest extends FormRequest
 {
     public function authorize()
     {

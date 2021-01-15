@@ -3,7 +3,6 @@
 
 namespace Akkurate\LaravelContact\Classes;
 
-
 use Akkurate\LaravelContact\Models\Phone;
 use Akkurate\LaravelContact\Models\Type;
 use Illuminate\Support\Facades\Validator;
@@ -49,8 +48,12 @@ class ContactPhone
             'is_active' => Contact::getIfExists($params, 'is_active', 1),
             'phoneable_type' => $params['phoneable_type'],
             'phoneable_id' => $params['phoneable_id'],
-            'type_id' => Contact::getItemId($params, 'type', Type::class,
-                array_key_exists('type_id', $params) ? $params['type_id'] : self::getDefaultType()->id),
+            'type_id' => Contact::getItemId(
+                $params,
+                'type',
+                Type::class,
+                array_key_exists('type_id', $params) ? $params['type_id'] : self::getDefaultType()->id
+            ),
         ];
 
         if ($phone = Phone::where([

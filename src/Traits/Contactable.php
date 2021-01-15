@@ -12,7 +12,6 @@ use Akkurate\LaravelContact\Models\Type;
  */
 trait Contactable
 {
-
     public function emails()
     {
         return $this->morphMany(Email::class, 'emailable');
@@ -48,12 +47,15 @@ trait Contactable
     {
         if (count($this->phones()->where('type_id', Type::where('code', 'WORK')->first()->id)->get())) {
             $phone = $this->phones()->where(['type_id' => Type::where('code', 'WORK')->first()->id])->latest()->first();
+
             return $this->formatPhone($phone->number);
         } elseif (count($this->phones()->where('type_id', Type::where('code', 'HOME')->first()->id)->get())) {
             $phone = $this->phones()->where(['type_id' => Type::where('code', 'HOME')->first()->id])->latest()->first();
+
             return $this->formatPhone($phone->number);
         } elseif (count($this->phones()->where('type_id', Type::where('code', 'MOBILE')->first()->id)->get())) {
             $phone = $this->phones()->where(['type_id' => Type::where('code', 'MOBILE')->first()->id])->latest()->first();
+
             return $this->formatPhone($phone->number);
         } else {
             return 'Aucun numéro enregistré';
@@ -73,15 +75,19 @@ trait Contactable
     {
         if (count($this->addresses()->where('type_id', Type::where('code', 'HOME')->first()->id)->get())) {
             $address = $this->addresses()->where(['type_id' => Type::where('code', 'HOME')->first()->id])->latest()->first();
+
             return $this->formatAddress($address);
         } elseif (count($this->addresses()->where('type_id', Type::where('code', 'WORK')->first()->id)->get())) {
             $address = $this->addresses()->where(['type_id' => Type::where('code', 'WORK')->first()->id])->latest()->first();
+
             return $this->formatAddress($address);
-        }  elseif (count($this->addresses()->where('type_id', Type::where('code', 'BILLING')->first()->id)->get())) {
+        } elseif (count($this->addresses()->where('type_id', Type::where('code', 'BILLING')->first()->id)->get())) {
             $phone = $this->addresses()->where(['type_id' => Type::where('code', 'BILLING')->first()->id])->latest()->first();
+
             return $this->formatPhone($phone->number);
         } elseif (count($this->addresses()->where('type_id', Type::where('code', 'DELIVERY')->first()->id)->get())) {
             $phone = $this->addresses()->where(['type_id' => Type::where('code', 'DELIVERY')->first()->id])->latest()->first();
+
             return $this->formatPhone($phone->number);
         } else {
             return 'Aucune adresse renseignée';
@@ -104,7 +110,7 @@ trait Contactable
         $addressDisplay .= $address->zip;
         $addressDisplay .= config('laravel-contact.address.display.delimiter');
         $addressDisplay .= $address->city;
+
         return $addressDisplay;
     }
-
 }

@@ -8,9 +8,9 @@ use Akkurate\LaravelContact\Http\Requests\Address\UpdateAddressRequest;
 use Akkurate\LaravelContact\Http\Resources\Address as AddressResource;
 use Akkurate\LaravelContact\Http\Resources\AddressCollection;
 use Akkurate\LaravelContact\Models\Address;
-use Illuminate\Routing\Controller;
 use Exception;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -26,7 +26,8 @@ class AddressController extends Controller
      */
     public function index()
     {
-        return new AddressCollection(QueryBuilder::for(Address::class)
+        return new AddressCollection(
+            QueryBuilder::for(Address::class)
             ->allowedFilters([
                 'type', 'name', 'street1', 'street2', 'street3', 'zip', 'city', 'priority', 'is_default', 'is_active', 'addressable_type',
                 AllowedFilter::exact('addressable_id')
@@ -48,6 +49,7 @@ class AddressController extends Controller
     public function store($uuid, CreateAddressRequest $request)
     {
         $address = ContactAddress::create($request->validated());
+
         return new AddressResource($address);
     }
 
@@ -72,6 +74,7 @@ class AddressController extends Controller
     public function update($uuid, UpdateAddressRequest $request, Address $address)
     {
         $address->update($request->validated());
+
         return new AddressResource($address);
     }
 
@@ -85,7 +88,7 @@ class AddressController extends Controller
     public function destroy($uuid, Address $address)
     {
         $address->delete();
+
         return response()->json(null, 204);
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace Akkurate\LaravelContact\Http\Requests\Address;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateAddressRequest extends FormRequest
