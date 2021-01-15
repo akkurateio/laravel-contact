@@ -17,6 +17,8 @@
         "docs": "https://github.com/akkurateio/documentation"
     },
     "require": {
+        "php": "^7.3",
+        "ext-json": "*",
         "akkurateio/laravel-back-components": "0.x-dev",
         "spatie/laravel-json-api-paginate": "^1.7",
         "webpatser/laravel-uuid": "^3.0"
