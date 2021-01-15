@@ -1,6 +1,6 @@
 <?php
 
-namespace Akkurate\LaravelContact\Tests\Models;
+namespace Akkurate\LaravelContact\Tests\Fixtures;
 
 use Illuminate\Database\Eloquent\Model;
 

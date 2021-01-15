@@ -4,8 +4,8 @@ namespace Akkurate\LaravelContact\Tests;
 
 use Akkurate\LaravelBackComponents\LaravelBackComponentsServiceProvider;
 use Akkurate\LaravelContact\LaravelContactServiceProvider;
-use Akkurate\LaravelContact\Tests\Models\Account;
-use Akkurate\LaravelContact\Tests\Models\User;
+use Akkurate\LaravelContact\Tests\Fixtures\Account;
+use Akkurate\LaravelContact\Tests\Fixtures\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
