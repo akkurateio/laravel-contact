@@ -36,11 +36,16 @@ class TestCase extends OrchestraTestCase
 
     protected function setUpDatabase()
     {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->default('');
             $table->string('name');
             $table->string('email')->nullable()->unique();
+            $table->foreignId('address_id')->nullable()->constrained('contact_addresses')->onDelete('cascade');
+            $table->foreignId('phone_id')->nullable()->constrained('contact_phones')->onDelete('cascade');
+            $table->foreignId('email_id')->nullable()->constrained('contact_emails')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -51,10 +56,12 @@ class TestCase extends OrchestraTestCase
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->foreignId('account_id')->nullable()->constrained('accounts')->onDelete('cascade');
+            $table->foreignId('address_id')->nullable()->constrained('contact_addresses')->onDelete('cascade');
+            $table->foreignId('phone_id')->nullable()->constrained('contact_phones')->onDelete('cascade');
+            $table->foreignId('email_id')->nullable()->constrained('contact_emails')->onDelete('cascade');
             $table->timestamps();
         });
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     protected function createUser()
