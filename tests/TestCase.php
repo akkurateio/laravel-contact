@@ -61,7 +61,6 @@ class TestCase extends OrchestraTestCase
             $table->foreignId('email_id')->nullable()->constrained('contact_emails')->onDelete('cascade');
             $table->timestamps();
         });
-
     }
 
     protected function createUser()
