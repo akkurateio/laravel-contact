@@ -27,21 +27,20 @@ trait Contactable
         return $this->morphMany(Address::class, 'addressable');
     }
 
-    public function address()
+    public function getAddressAttribute()
     {
-        return $this->belongsTo(Address::class);
+        return $this->addresses->where('is_default')->first();
     }
 
-    public function email()
+    public function getEmailAttribute()
     {
-        return $this->belongsTo(Email::class);
+        return $this->emails->where('is_default')->first();
     }
 
-    public function phone()
+    public function getPhoneAttribute()
     {
-        return $this->belongsTo(Phone::class);
+        return $this->phones->where('is_default')->first();
     }
-
 
     public function getPhoneFormattedAttribute()
     {
