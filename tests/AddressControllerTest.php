@@ -15,7 +15,7 @@ class AddressControllerTest extends TestCase
         $this->user->addresses()->create([
             'type_id' => Type::factory()->create()->id,
             'street1' => '48, rue Maurice Béjart',
-            'zip' => '34080',
+            'postcode' => '34080',
             'city' => 'Montpellier',
             'priority' => 1,
             'is_active' => 1,
@@ -30,7 +30,7 @@ class AddressControllerTest extends TestCase
         $this->user->account->addresses()->create([
             'type_id' => Type::factory()->create()->id,
             'street1' => '48, rue Maurice Béjart',
-            'zip' => '34080',
+            'postcode' => '34080',
             'city' => 'Montpellier',
             'priority' => 1,
             'is_active' => 1,

@@ -106,7 +106,7 @@ trait Contactable
             $addressDisplay .= $address->street3;
             $addressDisplay .= config('laravel-contact.address.display.delimiter');
         }
-        $addressDisplay .= $address->zip;
+        $addressDisplay .= $address->postcode;
         $addressDisplay .= config('laravel-contact.address.display.delimiter');
         $addressDisplay .= $address->city;
 

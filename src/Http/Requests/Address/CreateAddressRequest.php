@@ -19,7 +19,7 @@ class CreateAddressRequest extends FormRequest
             'street1' => 'required|string',
             'street2' => 'nullable|string',
             'street3' => 'nullable|string',
-            'zip' => 'required|digits:5',
+            'postcode' => 'required|digits:5',
             'city' => 'required|string',
             'priority' => 'nullable|integer',
             'is_default' => 'nullable|boolean',

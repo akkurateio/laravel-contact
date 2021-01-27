@@ -29,10 +29,10 @@ class AddressController extends Controller
         return new AddressCollection(
             QueryBuilder::for(Address::class)
             ->allowedFilters([
-                'type', 'name', 'street1', 'street2', 'street3', 'zip', 'city', 'priority', 'is_default', 'is_active', 'addressable_type',
+                'type', 'name', 'street1', 'street2', 'street3', 'postcode', 'city', 'priority', 'is_default', 'is_active', 'addressable_type',
                 AllowedFilter::exact('addressable_id')
             ])
-            ->allowedSorts(['type', 'name', 'street1', 'street2', 'street3', 'zip', 'city', 'priority', 'is_default', 'is_active'])
+            ->allowedSorts(['type', 'name', 'street1', 'street2', 'street3', 'postcode', 'city', 'priority', 'is_default', 'is_active'])
             ->allowedIncludes(['addressable'])
             ->jsonPaginate()
         );

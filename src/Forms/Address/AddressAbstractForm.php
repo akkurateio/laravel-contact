@@ -25,7 +25,7 @@ class AddressAbstractForm extends Form
             ->add('street1', 'text', ['label' => __('Street1').' *', 'rules' => 'required'])
             ->add('street2', 'text', ['label' => __('Street2')])
             ->add('street3', 'text', ['label' => __('Street3')])
-            ->add('zip', 'text', ['label' => __('Zip').' *', 'rules' => 'required'])
+            ->add('postcode', 'text', ['label' => __('postcode').' *', 'rules' => 'required'])
             ->add('city', 'text', ['label' => __('City').' *', 'rules' => 'required'])
             ->add('is_active', 'choice', ['selected' => [true], 'label' => __('Est-elle active ?'), 'choices' => [true => __('Oui'), false => __('Non')], 'expanded' => true, 'multiple' => false, 'choice_options' => ['wrapper' => ['class' => 'custom-control custom-radio'], 'attr' => ['class' => 'custom-control-input'], 'label_attr' => ['class' => 'custom-control-label']]])
             ->add('is_default', 'choice', ['selected' => [true], 'label' => __('Est-elle active ?'), 'choices' => [true => __('Oui'), false => __('Non')], 'expanded' => true, 'multiple' => false, 'choice_options' => ['wrapper' => ['class' => 'custom-control custom-radio'], 'attr' => ['class' => 'custom-control-input'], 'label_attr' => ['class' => 'custom-control-label']]])
