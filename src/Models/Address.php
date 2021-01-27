@@ -9,7 +9,6 @@ use Webpatser\Uuid\Uuid;
 
 class Address extends Model
 {
-
     use HasFactory;
 
     protected $table = 'contact_addresses';

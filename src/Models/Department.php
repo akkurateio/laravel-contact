@@ -34,5 +34,4 @@ class Department extends Model
     {
         return 'slug';
     }
-
 }
