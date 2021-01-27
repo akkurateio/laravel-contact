@@ -3,7 +3,9 @@
 namespace Akkurate\LaravelContact;
 
 use Akkurate\LaravelContact\Console\ContactSeed;
+use Akkurate\LaravelContact\Models\Address;
 use Illuminate\Support\ServiceProvider;
+use Akkurate\LaravelContact\Observers\AddressObserver;
 
 /**
  * LaravelContact service provider
@@ -33,6 +35,8 @@ class LaravelContactServiceProvider extends ServiceProvider
                 ContactSeed::class
             ]);
         }
+
+        Address::observe(AddressObserver::class);
     }
 
     /**

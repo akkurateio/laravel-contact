@@ -8,6 +8,7 @@ use Akkurate\LaravelContact\Tests\Fixtures\Account;
 use Akkurate\LaravelContact\Tests\Fixtures\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Laravel\Horizon\HorizonServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider;
 
@@ -31,6 +32,7 @@ class TestCase extends OrchestraTestCase
             LaravelContactServiceProvider::class,
             JsonApiPaginateServiceProvider::class,
             LaravelBackComponentsServiceProvider::class,
+            HorizonServiceProvider::class
         ];
     }
 
