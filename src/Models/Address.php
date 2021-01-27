@@ -66,7 +66,7 @@ class Address extends Model
 
         $departmentInformations = [];
 
-        if (!empty($geocodedAddress->properties->context)) {
+        if (! empty($geocodedAddress->properties->context)) {
             //0 Number
             //1 Name
             //2 Region
@@ -80,7 +80,7 @@ class Address extends Model
             'latitude' => $geocodedAddress->geometry->coordinates[1],
             'name' => $geocodedAddress->properties->name,
             'housenumber' => $geocodedAddress->properties->housenumber ?? null,
-            'department_id' => !empty($department) ? $department->id : null,
+            'department_id' => ! empty($department) ? $department->id : null,
         ]);
     }
 

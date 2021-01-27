@@ -4,8 +4,8 @@ namespace Akkurate\LaravelContact;
 
 use Akkurate\LaravelContact\Console\ContactSeed;
 use Akkurate\LaravelContact\Models\Address;
-use Illuminate\Support\ServiceProvider;
 use Akkurate\LaravelContact\Observers\AddressObserver;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * LaravelContact service provider
