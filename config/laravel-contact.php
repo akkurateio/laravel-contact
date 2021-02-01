@@ -78,6 +78,14 @@ return [
                 'priority' => 4,
                 'is_active' => 1,
             ],
+            [
+                'code' => 'MOBILE',
+                'name' => 'Portable',
+                'shortname' => 'Cell',
+                'description' => 'Téléphone portable',
+                'priority' => 5,
+                'is_active' => 1,
+            ],
     ]
     ]
 
