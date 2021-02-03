@@ -26,7 +26,7 @@ class TestCase extends OrchestraTestCase
         auth()->login($this->user);
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LaravelContactServiceProvider::class,

@@ -54,6 +54,10 @@ class CreateGeocode implements ShouldQueue
      */
     public function middleware()
     {
+        if (config('app.env') == 'testing') {
+            return [];
+        }
+
         $rateLimitedMiddleware = (new RateLimited())
             ->allow(5)
             ->everySecond();
