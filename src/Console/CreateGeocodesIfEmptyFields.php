@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Akkurate\LaravelContact\Console;
 
 use Akkurate\LaravelContact\Jobs\CreateGeocode;
 use Akkurate\LaravelContact\Models\Address;
