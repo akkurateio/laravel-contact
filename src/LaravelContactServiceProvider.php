@@ -5,6 +5,7 @@ namespace Akkurate\LaravelContact;
 use Akkurate\LaravelContact\Console\ContactSeed;
 use Akkurate\LaravelContact\Models\Address;
 use Akkurate\LaravelContact\Observers\AddressObserver;
+use App\Console\Commands\CreateGeocodesIfEmptyFields;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -32,7 +33,8 @@ class LaravelContactServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                ContactSeed::class
+                ContactSeed::class,
+                CreateGeocodesIfEmptyFields::class
             ]);
         }
 
