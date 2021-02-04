@@ -28,6 +28,7 @@ class CreateGeocodesIfEmptyFields extends Command
 
         if ($addresses->isEmpty()) {
             $this->info('No more addresses without latitude and longitude, you are good.');
+
             return;
         }
 
