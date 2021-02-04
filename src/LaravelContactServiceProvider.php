@@ -3,9 +3,9 @@
 namespace Akkurate\LaravelContact;
 
 use Akkurate\LaravelContact\Console\ContactSeed;
+use Akkurate\LaravelContact\Console\CreateGeocodesIfEmptyFields;
 use Akkurate\LaravelContact\Models\Address;
 use Akkurate\LaravelContact\Observers\AddressObserver;
-use Akkurate\LaravelContact\Console\CreateGeocodesIfEmptyFields;
 use Illuminate\Support\ServiceProvider;
 
 /**
